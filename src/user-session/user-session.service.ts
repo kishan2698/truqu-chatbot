@@ -8,7 +8,6 @@ export class UserSessionService {
         fs.unlink(`${number}.json`, function (err: any) {
             if (err) throw err;
             console.log('File deleted!');
-        })
         const userData:object = {
             userChoice: data,
             contactChoice:null
@@ -17,6 +16,7 @@ export class UserSessionService {
             if (err) throw err;
             console.log('Saved!');
             });
+        })
     }
     userSessionCreate(number: string,data: object){
         fs.appendFile(`${number}.json`, JSON.stringify(data), 'utf8', function (err: any) {
@@ -34,7 +34,6 @@ export class UserSessionService {
         fs.unlink(`${number}.json`, function (err: any) {
             if (err) throw err;
             console.log('File deleted!');
-        })
         const resData:object = {
             userChoice:preData,
             contactChoice:latData
@@ -43,6 +42,7 @@ export class UserSessionService {
             if (err) throw err;
             console.log('Saved!');
             });
+        })
     }
     async fsPromiseManagement(contact:string, data:object):Promise<any>{
         await asyncFs.writeFile(`${contact}.json`, JSON.stringify(data), 'utf8');
